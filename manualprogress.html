@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Progress Bar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div class="w-full max-w-xl bg-gray-200 rounded-full overflow-hidden mb-4">
+        <div class="progress-bar bg-green-500 text-white text-center" id="progressBar">0%</div>
+    </div>
+    <button class="px-4 py-2 bg-blue-500 text-white rounded mb-4" onclick="updateProgress()">Update Progress</button>
+    <button class="px-4 py-2 bg-red-500 text-white rounded mb-4" onclick="resetProgress()">Reset Progress</button>
+    <div class="bg-white p-4 rounded shadow">
+        <p id="progressInfo">Progress: 0%</p>
+        <p id="watchTimeInfo">Total Watch Time: 0 hours</p>
+    </div>
+
+    <script>
+        let progress = parseFloat(localStorage.getItem('progress')) || 0;
+        const totalHours = 20;
+        const incrementMinutes = 35;
+        const totalMinutes = totalHours * 60;
+        const incrementPercentage = (incrementMinutes / totalMinutes) * 100;
+
+        function updateProgress() {
+            if (progress < 100) {
+                progress += incrementPercentage;
+                if (progress > 100) {
+                    progress = 100;
+                }
+                document.getElementById('progressBar').style.width = progress + '%';
+                document.getElementById('progressBar').innerText = progress.toFixed(2) + '%';
+                document.getElementById('progressInfo').innerText = 'Progress: ' + progress.toFixed(2) + '%';
+                document.getElementById('watchTimeInfo').innerText = 'Total Watch Time: ' + (progress / 100 * totalHours).toFixed(2) + ' hours';
+                localStorage.setItem('progress', progress);
+            }
+        }
+
+        function resetProgress() {
+            progress = 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressBar').innerText = progress.toFixed(2) + '%';
+            document.getElementById('progressInfo').innerText = 'Progress: ' + progress.toFixed(2) + '%';
+            document.getElementById('watchTimeInfo').innerText = 'Total Watch Time: ' + (progress / 100 * totalHours).toFixed(2) + ' hours';
+            localStorage.removeItem('progress');
+        }
+
+        // Initialize progress bar and info on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressBar').innerText = progress.toFixed(2) + '%';
+            document.getElementById('progressInfo').innerText = 'Progress: ' + progress.toFixed(2) + '%';
+            document.getElementById('watchTimeInfo').innerText = 'Total Watch Time: ' + (progress / 100 * totalHours).toFixed(2) + ' hours';
+        });
+    </script>
+</body>
+
+</html>

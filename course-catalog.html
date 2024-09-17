@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Course Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold mb-2 text-center text-indigo-800">Course Catalog</h1>
+        <p class="text-center text-gray-600 mb-8">Discover your next learning adventure</p>
+        <div id="courseCatalog" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+            <!-- Course cards will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        const courses = [
+            { name: "Coursera - Java Programming and Software Engineering Fundamentals", url: "https://www.coursera.org/specializations/java-programming", category: "Java Programming" },
+            { name: "Java Programming Masterclass for Software Developers by Tim Buchalka", url: "https://www.udemy.com/course/java-the-complete-java-developer-course/?couponCode=SKILLS4SALEA", category: "Java Programming" },
+            { name: "React - The Complete Guide 2024 (incl. Next.js, Redux)", url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/?couponCode=SKILLS4SALEB", category: "Frontend Development" },
+            { name: "Master Spring Boot 3 & Spring Framework 6 with Java", url: "https://www.udemy.com/course/spring-boot-and-spring-framework-tutorial-for-beginners/", category: "Backend Development" },
+            { name: "Udemy - Microservices with Spring Boot and Spring Cloud", url: "https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/", category: "Microservices" },
+            { name: "Udemy - Spring & Hibernate for Beginners (includes Spring Boot)", url: "https://www.udemy.com/course/spring-hibernate-tutorial/", category: "Backend Development" },
+            { name: "Full Stack: React and Java Spring Boot - The Developer Guide", url: "https://www.udemy.com/course/full-stack-react-and-java-spring-boot-the-developer-guide/?couponCode=SKILLS4SALEA", category: "Full Stack Development" },
+            { name: "Udemy - REST API Design, Development & Management", url: "https://www.udemy.com/course/rest-api/?couponCode=ST11MT91624A", category: "API Development" },
+            { name: "Udemy - OAuth 2.0 and OpenID Connect (in plain English)", url: "https://www.youtube.com/watch?v=sSy5-3IkXHE", category: "Authentication & Security" },
+            { name: "Docker and Kubernetes: The Complete Guide by Stephen Grider", url: "https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/?couponCode=SKILLS4SALEB", category: "DevOps" },
+            { name: "Udemy - Docker Mastery: with Kubernetes + Swarm from a Docker Captain", url: "https://www.udemy.com/course/docker-mastery/", category: "DevOps" },
+            { name: "Udemy - Learn DevOps: The Complete Kubernetes Course", url: "https://www.udemy.com/course/learn-devops-the-complete-kubernetes-course/?couponCode=ST11MT91624A", category: "DevOps" },
+            { name: "MongoDB - The Complete Developer's Guide 2024", url: "https://www.udemy.com/course/mongodb-the-complete-developers-guide/?couponCode=SKILLS4SALEA", category: "Database" },
+            { name: "SQL and PostgreSQL for Beginners: Become an SQL Expert", url: "https://www.udemy.com/course/sql-and-postgresql-for-beginners/?couponCode=SKILLS4SALEB", category: "Database" },
+            { name: "Udemy - The Complete SQL Bootcamp 2021: Go from Zero to Hero", url: "https://www.udemy.com/course/the-complete-sql-bootcamp/", category: "Database" },
+            { name: "Udemy - The Complete Developer's Guide to MongoDB", url: "https://www.udemy.com/course/the-complete-developers-guide-to-mongodb/", category: "Database" },
+            { name: "Udemy - Complete Python Bootcamp: Go from zero to hero in Python 3", url: "https://www.udemy.com/course/complete-python-bootcamp/", category: "Python Programming" },
+            { name: "Udemy - Data Structures and Algorithms: Deep Dive Using Java", url: "https://www.udemy.com/course/data-structures-and-algorithms-deep-dive-using-java/", category: "Algorithms & Data Structures" }
+        ];
+
+        function getCategoryColor(category) {
+            const colors = {
+                "Programming": "bg-blue-100 text-blue-800",
+                "Web Development": "bg-green-100 text-green-800",
+                "DevOps": "bg-yellow-100 text-yellow-800",
+                "Security": "bg-red-100 text-red-800",
+                "Database": "bg-purple-100 text-purple-800"
+            };
+            return colors[category] || "bg-gray-100 text-gray-800";
+        }
+
+        function createCourseCard(course, index) {
+            const card = document.createElement('div');
+            card.className = 'bg-gradient-to-br from-yellow-100 to-green-200 rounded-xl shadow-lg p-6 mb-4 fade-in transform transition duration-300 hover:scale-105 hover:shadow-xl';
+            card.style.animationDelay = `${index * 0.1}s`;
+
+            const categoryColor = getCategoryColor(course.category);
+
+            const content = `
+                <div class="flex flex-col h-full">
+                    <div class="flex items-start mb-4">
+                        <span class="text-3xl font-bold text-indigo-600 mr-4">${index + 1}</span>
+                        <div class="flex-grow">
+                            <h2 class="text-xl font-semibold mb-2 text-gray-800">${course.name}</h2>
+                            <span class="inline-block px-3 py-1 rounded-full text-sm font-semibold ${categoryColor}">
+                                ${course.category}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        ${course.url ? `
+                            <a href="${course.url}" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300">
+                                Visit Course 
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        ` : '<span class="text-gray-500 italic">No link available</span>'}
+                    </div>
+                </div>
+            `;
+
+            card.innerHTML = content;
+            return card;
+        }
+
+        function renderCourseCatalog() {
+            const catalogContainer = document.getElementById('courseCatalog');
+            courses.forEach((course, index) => {
+                const card = createCourseCard(course, index);
+                catalogContainer.appendChild(card);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCourseCatalog);
+    </script>
+</body>
+
+</html>

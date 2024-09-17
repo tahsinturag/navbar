@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-Hour Course Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-4">
+    <div class="bg-white rounded-lg shadow-md max-w-3xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6 text-center">16-Hour Course Plan</h1>
+
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-3">Progress</h2>
+            <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
+                <div id="progressBar" class="bg-blue-600 h-4 rounded-full" style="width: 0%;"></div>
+            </div>
+            <p id="progressText" class="text-center">0% completed</p>
+        </div>
+
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-3">Timer</h2>
+            <div id="timer" class="text-3xl font-bold text-center">35:00</div>
+            <div class="flex justify-center space-x-4 mt-4">
+                <button id="startTimerBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                    Start Timer
+                </button>
+                <button id="pauseTimerBtn"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded" disabled>
+                    Pause Timer
+                </button>
+                <button id="resetTimerBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                    Reset Timer
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold mb-3">Week 1</h2>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 1</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 2</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 3</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 4</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold mb-3">Week 2</h2>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 5</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 6</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 7</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Day 8</h3>
+                    <ul class="list-disc list-inside">
+                        <li>0:00 – 0:35: Focus on task 1</li>
+                        <li>0:35 – 0:40: Break</li>
+                        <li>0:40 – 1:15: Focus on task 2</li>
+                        <li>1:15 – 1:20: Break</li>
+                        <li>1:20 – 1:55: Focus on task 3</li>
+                        <li>1:55 – 2:00: Final review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const timerElement = document.getElementById('timer');
+        const startTimerBtn = document.getElementById('startTimerBtn');
+        const pauseTimerBtn = document.getElementById('pauseTimerBtn');
+        const resetTimerBtn = document.getElementById('resetTimerBtn');
+
+        let totalHours = 16;
+        let completedHours = parseFloat(localStorage.getItem('completedHours')) || 0;
+        let timerInterval;
+        let timeLeft = parseInt(localStorage.getItem('timeLeft')) || 35 * 60; // 35 minutes in seconds
+        let isPaused = localStorage.getItem('isPaused') === 'true';
+
+        function updateProgress() {
+            const progressPercentage = (completedHours / totalHours) * 100;
+            progressBar.style.width = progressPercentage + '%';
+            progressText.textContent = progressPercentage.toFixed(2) + '% completed';
+        }
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (isPaused) {
+                isPaused = false;
+                localStorage.setItem('isPaused', 'false');
+                timerInterval = setInterval(() => {
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        timerElement.textContent = '00:00';
+                        completedHours += 0.5; // Increment by 0.5 hours for each 35-minute session
+                        localStorage.setItem('completedHours', completedHours);
+                        updateProgress();
+                        startTimerBtn.disabled = false;
+                        pauseTimerBtn.disabled = true;
+                    } else {
+                        timeLeft--;
+                        localStorage.setItem('timeLeft', timeLeft);
+                        updateTimer();
+                    }
+                }, 1000);
+            } else {
+                timeLeft = 35 * 60; // Reset timeLeft to 35 minutes
+                localStorage.setItem('timeLeft', timeLeft);
+                timerInterval = setInterval(() => {
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        timerElement.textContent = '00:00';
+                        completedHours += 0.5; // Increment by 0.5 hours for each 35-minute session
+                        localStorage.setItem('completedHours', completedHours);
+                        updateProgress();
+                        startTimerBtn.disabled = false;
+                        pauseTimerBtn.disabled = true;
+                    } else {
+                        timeLeft--;
+                        localStorage.setItem('timeLeft', timeLeft);
+                        updateTimer();
+                    }
+                }, 1000);
+            }
+            startTimerBtn.disabled = true;
+            pauseTimerBtn.disabled = false;
+        }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            isPaused = true;
+            localStorage.setItem('isPaused', 'true');
+            startTimerBtn.disabled = false;
+            pauseTimerBtn.disabled = true;
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timeLeft = 35 * 60; // Reset timeLeft to 35 minutes
+            localStorage.setItem('timeLeft', timeLeft);
+            updateTimer();
+            startTimerBtn.disabled = false;
+            pauseTimerBtn.disabled = true;
+        }
+
+        startTimerBtn.addEventListener('click', startTimer);
+        pauseTimerBtn.addEventListener('click', pauseTimer);
+        resetTimerBtn.addEventListener('click', resetTimer);
+
+        updateProgress();
+        updateTimer();
+
+        // Resume timer if it was paused
+        if (isPaused) {
+            startTimerBtn.disabled = false;
+            pauseTimerBtn.disabled = false;
+        }
+    </script>
+</body>
+
+</html>

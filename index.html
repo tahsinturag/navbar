@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL in one</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="bg-indigo-600 p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-white text-2xl font-bold">StudyPlanner</a>
+                <button class="text-white lg:hidden" id="menu-toggle">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="hidden lg:flex lg:space-x-4 mt-4 lg:mt-0" id="menu">
+                <li><a href="study-schedule.html" target="_blank" rel="noopener noreferrer"
+                        class="block text-white hover:text-indigo-200 py-2">Study Schedule</a></li>
+                <li><a href="course-catalog.html" target="_blank" rel="noopener noreferrer"
+                        class="block text-white hover:text-indigo-200 py-2">Course Catalog</a></li>
+                <li><a href="daily-planner.html" target="_blank" rel="noopener noreferrer"
+                        class="block text-white hover:text-indigo-200 py-2">Daily Planner</a></li>
+                <li><a href="manualprogress.html" target="_blank" rel="noopener noreferrer"
+                        class="block text-white hover:text-indigo-200 py-2">Manual Progressbar</a></li>
+                <li><a href="16hrcourse.html" target="_blank" rel="noopener noreferrer"
+                        class="block text-white hover:text-indigo-200 py-2">16hrcourse</a></li>
+                <li><a href="schedule_pattern.html" target="_blank" rel="noopener noreferrer"
+                        class="block text-white hover:text-indigo-200 py-2">schedule pattern</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

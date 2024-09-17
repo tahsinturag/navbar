@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-hour Schedule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-br from-indigo-100 to-blue-100 min-h-screen p-8 font-['Poppins']">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-5xl font-bold text-center mb-12 text-indigo-800 drop-shadow-lg">Daily Planner</h1>
+        <div id="schedule" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"></div>
+    </div>
+
+    <script>
+        function formatTime(hours, minutes) {
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const displayHours = hours % 12 || 12;
+            return `${displayHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+        }
+
+        function createBlocks() {
+            const schedule = document.getElementById('schedule');
+            let currentTime = new Date(2024, 0, 1, 0, 0); // Start at midnight
+            const savedSelections = JSON.parse(localStorage.getItem('selectedBlocks')) || [];
+
+            for (let i = 0; i < 48; i++) {
+                const block = document.createElement('div');
+                const startTime = formatTime(currentTime.getHours(), currentTime.getMinutes());
+
+                currentTime.setMinutes(currentTime.getMinutes() + 30);
+                const endTime = formatTime(currentTime.getHours(), currentTime.getMinutes());
+
+                block.className = 'bg-white bg-opacity-90 backdrop-blur-md p-4 rounded-2xl shadow-lg text-center cursor-pointer transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 hover:bg-opacity-80';
+                block.innerHTML = `
+                    <p class="font-semibold text-lg text-indigo-800">${startTime}</p>
+                    <p class="text-sm text-indigo-600">to ${endTime}</p>
+                    <div class="mt-2 h-1 bg-gradient-to-r from-indigo-300 to-blue-300 rounded-full"></div>
+                `;
+                block.setAttribute('data-block', i);
+
+                if (savedSelections.includes(i)) {
+                    block.classList.add('bg-gradient-to-br', 'from-indigo-200', 'to-blue-200', 'border-2', 'border-indigo-400');
+                }
+
+                block.addEventListener('click', toggleSelection);
+                schedule.appendChild(block);
+            }
+        }
+
+        function toggleSelection(event) {
+            const block = event.currentTarget;
+            const blockIndex = parseInt(block.getAttribute('data-block'));
+
+            block.classList.toggle('bg-gradient-to-br');
+            block.classList.toggle('from-indigo-200');
+            block.classList.toggle('to-blue-200');
+            block.classList.toggle('border-2');
+            block.classList.toggle('border-indigo-400');
+
+            let selectedBlocks = JSON.parse(localStorage.getItem('selectedBlocks')) || [];
+
+            if (selectedBlocks.includes(blockIndex)) {
+                selectedBlocks = selectedBlocks.filter(index => index !== blockIndex);
+            } else {
+                selectedBlocks.push(blockIndex);
+            }
+
+            localStorage.setItem('selectedBlocks', JSON.stringify(selectedBlocks));
+        }
+
+        createBlocks();
+    </script>
+</body>
+
+</html>

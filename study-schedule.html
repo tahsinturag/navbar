@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Schedule Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-4">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8 text-indigo-800">Study Schedule Timeline</h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Night Owl Schedule -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-indigo-600">Night Owl Schedule</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">10:00 - 10:30</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Morning Preparation</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">10:30 - 12:00</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 1
+                            <div class="flex items-center mt-2">
+                                <span id="timer-1" class="mr-2">90:00</span>
+                                <button onclick="startTimer(1)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(1)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(1)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">12:00 - 12:15</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">12:15 - 1:45</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 2
+                            <div class="flex items-center mt-2">
+                                <span id="timer-2" class="mr-2">90:00</span>
+                                <button onclick="startTimer(2)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(2)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(2)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">1:45 - 2:00</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Review and Plan</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">3:00 - 3:30</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Lunch Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">3:30 - 5:00</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 3
+                            <div class="flex items-center mt-2">
+                                <span id="timer-3" class="mr-2">90:00</span>
+                                <button onclick="startTimer(3)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(3)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(3)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">5:00 - 5:15</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">5:15 - 6:45</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 4
+                            <div class="flex items-center mt-2">
+                                <span id="timer-4" class="mr-2">90:00</span>
+                                <button onclick="startTimer(4)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(4)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(4)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">6:45 - 7:00</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Review and Reflection</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">8:00 - 8:30</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Dinner Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">8:30 - 10:00</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 5
+                            <div class="flex items-center mt-2">
+                                <span id="timer-5" class="mr-2">90:00</span>
+                                <button onclick="startTimer(5)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(5)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(5)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">10:00 - 10:15</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">10:15 - 11:45</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 6
+                            <div class="flex items-center mt-2">
+                                <span id="timer-6" class="mr-2">90:00</span>
+                                <button onclick="startTimer(6)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(6)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(6)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">11:45 - 12:00</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Wrap-Up</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Morning Person Schedule -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-indigo-600">Morning Person Schedule</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">8:00 - 8:30</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Morning Preparation</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">8:30 - 10:00</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 1
+                            <div class="flex items-center mt-2">
+                                <span id="timer-7" class="mr-2">90:00</span>
+                                <button onclick="startTimer(7)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(7)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(7)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">10:00 - 10:15</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">10:15 - 11:45</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 2
+                            <div class="flex items-center mt-2">
+                                <span id="timer-8" class="mr-2">90:00</span>
+                                <button onclick="startTimer(8)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(8)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(8)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">11:45 - 12:00</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Review and Plan</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">1:00 - 1:30</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Lunch Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">1:30 - 3:00</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 3
+                            <div class="flex items-center mt-2">
+                                <span id="timer-9" class="mr-2">90:00</span>
+                                <button onclick="startTimer(9)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(9)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(9)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">3:00 - 3:15</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">3:15 - 4:45</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 4
+                            <div class="flex items-center mt-2">
+                                <span id="timer-10" class="mr-2">90:00</span>
+                                <button onclick="startTimer(10)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(10)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(10)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">4:45 - 5:00</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Review and Reflection</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">6:00 - 6:30</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Dinner Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">6:30 - 8:00</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 5
+                            <div class="flex items-center mt-2">
+                                <span id="timer-11" class="mr-2">90:00</span>
+                                <button onclick="startTimer(11)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(11)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(11)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">8:00 - 8:15</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Break</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">8:15 - 9:45</div>
+                        <div class="flex-grow bg-green-200 rounded-lg p-2 border-l-4 border-green-500">Focused Study
+                            Block 6
+                            <div class="flex items-center mt-2">
+                                <span id="timer-12" class="mr-2">90:00</span>
+                                <button onclick="startTimer(12)"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Start</button>
+                                <button onclick="pauseTimer(12)"
+                                    class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Pause</button>
+                                <button onclick="resetTimer(12)"
+                                    class="bg-red-500 text-white px-2 py-1 rounded">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-32 font-semibold text-right pr-4">9:45 - 10:00</div>
+                        <div class="flex-grow bg-blue-100 rounded-lg p-2">Wrap-Up</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4 text-indigo-600">Legend</h2>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-green-200 border-l-4 border-green-500 mr-2"></div>
+                    <span>Study Time</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-blue-100 mr-2"></div>
+                    <span>Breaks / Preparation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let timers = {};
+        let timeLeft = {};
+
+        function startTimer(id) {
+            if (timers[id]) {
+                clearInterval(timers[id]);
+            }
+            if (!timeLeft[id]) {
+                timeLeft[id] = 90 * 60;
+            }
+            timers[id] = setInterval(() => {
+                let minutes = Math.floor(timeLeft[id] / 60);
+                let seconds = timeLeft[id] % 60;
+                document.getElementById(`timer-${id}`).textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                if (timeLeft[id] <= 0) {
+                    clearInterval(timers[id]);
+                }
+                timeLeft[id]--;
+            }, 1000);
+        }
+
+        function pauseTimer(id) {
+            clearInterval(timers[id]);
+        }
+
+        function resetTimer(id) {
+            clearInterval(timers[id]);
+            timeLeft[id] = 90 * 60;
+            document.getElementById(`timer-${id}`).textContent = '90:00';
+        }
+    </script>
+</body>
+
+</html>
